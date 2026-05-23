@@ -94,7 +94,7 @@ include(FetchContent)
 FetchContent_Declare(
     logman
     URL      https://github.com/aurimasniekis/cpp-logman/archive/refs/tags/v0.1.0.tar.gz
-    URL_HASH SHA256=0000000000000000000000000000000000000000000000000000000000000000
+    URL_HASH SHA256=443dd2a0928d4bfc24281ad8e9035b302bf68f15e666ce4d6ffbf6ec25c761ed
     DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 FetchContent_MakeAvailable(logman)
