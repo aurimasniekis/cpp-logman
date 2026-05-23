@@ -1,0 +1,106 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "relwithdebinfo",
+      "displayName": "RelWithDebInfo",
+      "binaryDir": "${sourceDir}/build/relwithdebinfo",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "minsizerel",
+      "displayName": "MinSizeRel",
+      "binaryDir": "${sourceDir}/build/minsizerel",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    },
+    {
+      "name": "sanitize",
+      "displayName": "ASan + UBSan",
+      "binaryDir": "${sourceDir}/build/sanitize",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "LOGMAN_ENABLE_SANITIZERS": "ON"
+      }
+    },
+    {
+      "name": "tsan",
+      "displayName": "ThreadSanitizer",
+      "binaryDir": "${sourceDir}/build/tsan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "LOGMAN_ENABLE_TSAN": "ON"
+      }
+    },
+    {
+      "name": "tidy",
+      "displayName": "clang-tidy",
+      "binaryDir": "${sourceDir}/build/tidy",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "LOGMAN_ENABLE_CLANG_TIDY": "ON"
+      }
+    },
+    {
+      "name": "coverage",
+      "displayName": "Coverage (Clang source-based)",
+      "binaryDir": "${sourceDir}/build/coverage",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "LOGMAN_ENABLE_COVERAGE": "ON"
+      }
+    },
+    {
+      "name": "docs",
+      "displayName": "Doxygen docs",
+      "binaryDir": "${sourceDir}/build/docs",
+      "cacheVariables": {
+        "LOGMAN_BUILD_DOCS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "debug", "configurePreset": "debug" },
+    { "name": "release", "configurePreset": "release" },
+    { "name": "relwithdebinfo", "configurePreset": "relwithdebinfo" },
+    { "name": "minsizerel", "configurePreset": "minsizerel" },
+    { "name": "sanitize", "configurePreset": "sanitize" },
+    { "name": "tsan", "configurePreset": "tsan" },
+    { "name": "tidy", "configurePreset": "tidy" },
+    { "name": "coverage", "configurePreset": "coverage" },
+    { "name": "docs", "configurePreset": "docs", "targets": ["logman_docs"] }
+  ],
+  "testPresets": [
+    { "name": "debug",          "configurePreset": "debug",          "output": { "outputOnFailure": true } },
+    { "name": "release",        "configurePreset": "release",        "output": { "outputOnFailure": true } },
+    { "name": "relwithdebinfo", "configurePreset": "relwithdebinfo", "output": { "outputOnFailure": true } },
+    { "name": "minsizerel",     "configurePreset": "minsizerel",     "output": { "outputOnFailure": true } },
+    { "name": "sanitize",       "configurePreset": "sanitize",       "output": { "outputOnFailure": true } },
+    { "name": "tsan",           "configurePreset": "tsan",           "output": { "outputOnFailure": true } },
+    { "name": "coverage",       "configurePreset": "coverage",       "output": { "outputOnFailure": true } }
+  ]
+}

@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+find_dependency(spdlog 1.17.0)
+
+include("${CMAKE_CURRENT_LIST_DIR}/logmanTargets.cmake")
+
+check_required_components(logman)
